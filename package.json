@@ -1,0 +1,123 @@
+{
+  "name": "mstream",
+  "version": "5.11.3",
+  "description": "music streaming server",
+  "main": "cli-boot-wrapper.js",
+  "bin": {
+    "mstream": "cli-boot-wrapper.js"
+  },
+  "engines": {
+    "node": ">=10.16.0"
+  },
+  "scripts": {
+    "start": "node cli-boot-wrapper.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "wizard": "npm install --only=prod && node cli-boot-wrapper.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IrosTheBeggar/mStream"
+  },
+  "author": {
+    "name": "Paul Sori",
+    "email": "paul@mstream.io"
+  },
+  "homepage": "https://mstream.io/",
+  "license": "GPL-3.0",
+  "build": {
+    "appId": "io.mstream.server",
+    "productName": "mStream Server",
+    "electronVersion": "16.0.7",
+    "asar": false,
+    "files": [
+      "**/*",
+      "!docs/*",
+      "!dist/*",
+      "!image-cache/*",
+      "!save/*",
+      "!bin/*",
+      "!.git/*",
+      "!.vscode/*",
+      "!package-lock.json"
+    ],
+    "mac": {
+      "files": [
+        "bin/rpn/rpn-osx",
+        "bin/syncthing/syncthing-osx"
+      ],
+      "category": "public.app-category.music",
+      "binaries": [
+        "frp/mstream-ddns-osx",
+        "sync/syncthing-osx"
+      ]
+    },
+    "win": {
+      "files": [
+        "bin/rpn/rpn-win.exe",
+        "bin/syncthing/syncthing.exe"
+      ],
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "files": [
+        "bin/rpn/rpn-linux",
+        "bin/syncthng/syncthing-linux"
+      ],
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64",
+            "armv7l"
+          ]
+        }
+      ]
+    },
+    "publish": {
+      "provider": "github",
+      "repo": "mStream",
+      "owner": "IrosTheBeggar"
+    }
+  },
+  "dependencies": {
+    "archiver": "^5.3.0",
+    "axios": "^0.25.0",
+    "busboy": "^1.4.0",
+    "commander": "^6.2.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "electron-updater": "^4.6.1",
+    "escape-string-regexp": "^4.0.0",
+    "express": "^4.17.2",
+    "fast-xml-parser": "^3.20.0",
+    "ffbinaries": "^1.1.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "http-proxy": "^1.18.1",
+    "jimp": "^0.16.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "lokijs": "^1.5.12",
+    "m3u8-parser": "^4.7.0",
+    "make-dir": "^3.1.0",
+    "mime-types": "^2.1.34",
+    "music-metadata": "^7.11.7",
+    "nanoid": "^3.2.0",
+    "tree-kill": "^1.2.2",
+    "winston": "^3.5.0",
+    "winston-daily-rotate-file": "^4.6.0",
+    "ws": "^8.4.2"
+  },
+  "devDependencies": {
+    "electron-builder": "22.11.7"
+  }
+}
