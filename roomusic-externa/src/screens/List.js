@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, FlatList, View, Text } from 'react-native';
-
 import colors from '../constants/colors';
 import { ListItem, ListSeparator } from '../components/Llista';
+import { styles, url } from './Login';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    paddingVertical: 20,
-  },
-});
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, FlatList, View, Text } from 'react-native';
 
 const screens = [
   {
@@ -74,7 +67,7 @@ export const List = ({ navigation,route }) => {
         <ListItem
           title={item.title}
           subtitle={item.subtitle}
-          onPress={() => navigation.navigate(item.target,{sessionToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjUyNzk3MjAwfQ.SlZ9nONbadlhUC3x1TTTqzf4eRyaR0-72t3DdxD635M'})}
+          onPress={() => navigation.navigate(item.target,{sessionToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imludml0YWRvIiwiaWF0IjoxNjUzMDQ5NDUxfQ.7yWxfLry5uLQy6lCT2Bzwp_vcqXRkKNzsOpl1uQ7yRY'})}
         />
       )}
       ItemSeparatorComponent={ListSeparator}

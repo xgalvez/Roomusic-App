@@ -2,8 +2,12 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { List } from '../screens/List';
-import { AlbumSongs, ArtistAlbums, ArtistsList, ButtonDemo, FormDemo, SongsList } from '../screens/Pantalles';
-import colors from '../constants/colors';
+import { FormDemo } from '../screens/Login';
+import { SongsList }  from '../screens/Songs';
+import { ArtistsList } from '../screens/Artists';
+import { ArtistAlbums } from '../screens/ArtistAlbums';
+import { AlbumSongs } from '../screens/AlbumSongs';
+import colors from '../constants/colors'; 
 import { RootSiblingParent } from 'react-native-root-siblings';
 
 
