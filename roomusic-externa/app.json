@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Roomusic",
+    "slug": "Roomusic",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logoRoomusic.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "roomusicXevi"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logoRoomusic.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/logoRoomusic.png"
+    }
+  }
+}
