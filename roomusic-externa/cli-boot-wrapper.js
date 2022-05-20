@@ -4,12 +4,12 @@
 // Check if we are in an electron environment
 if (process.versions["electron"]) {
   // off to a separate electron boot environment
-  return require("./build/electron");
+  return require("../build/electron");
 }
 
 const program = require('commander');
 program
-  .version(require('./package.json').version)
+  .version(require('../package.json').version)
   .option('-j, --json <json>', 'Specify JSON Boot File', require('path').join(__dirname, 'save/conf/default.json'))
   .parse(process.argv);  
 
@@ -36,8 +36,21 @@ console.log(`v${program.version()}`);
 console.log();
 
 // Boot the server
-require("./src/server").serveIt(program.json);
+require("../src/server").serveIt(program.json);
 
+
+//EXECUTA L'APP EXTERNA
+const { exec } = require('child_process');
+exec('yarn start', (err, stdout, stderr) => {
+  if (err) {
+    // node couldn't execute the command
+    return;
+  }
+
+  // the *entire* stdout and stderr (buffered)
+  console.log(`stdout: ${stdout}`);
+  console.log(`stderr: ${stderr}`);
+});
 
 
 
