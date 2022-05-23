@@ -24,9 +24,9 @@ export const FormDemo = ({navigation}) => {
   const click = () => {
     {submit() === 1 ? navigation.push('App',{email:email,password:password}) /*logIn(email,password)*/ : console.log("no pots entrar") };
   } 
-/*
   const [token, setToken] = useState(null);
   const [data, setData] = useState(null);
+
 
   function doLogIn(){
     useEffect(() => {
@@ -58,7 +58,7 @@ export const FormDemo = ({navigation}) => {
       fetchData();
     });
   }
-*/
+
 
   const [QRurl, setQRUrl] = useState();
   const [optionsForImageType, setOptionsForImageType] = useState();
@@ -103,7 +103,7 @@ export const FormDemo = ({navigation}) => {
         autoCapitalize="none"
       />
       <View style={styles.container}>
-      <Button position='10dp' onPress={click/*doLogIn*/ }>Sign In</Button> 
+      <Button position='10dp' onPress={click}>Sign In</Button> 
       <Button onPress={(generateQRCode)}>Generate QR</Button> 
       </View>
       <div>
