@@ -19,6 +19,47 @@ export const url = "http://192.168.1.64";
 //export const url = "http://172.20.10.4";
 
 export const FormDemo = ({navigation}) => {
+
+  const { submit, errors, email, setEmail, password, setPassword } = useLogin();
+  const click = () => {
+    {submit() === 1 ? navigation.push('App',{email:email,password:password}) /*logIn(email,password)*/ : console.log("no pots entrar") };
+  } 
+/*
+  const [token, setToken] = useState(null);
+  const [data, setData] = useState(null);
+
+  function doLogIn(){
+    useEffect(() => {
+      const fetchData = async () => {
+        const response = await fetch('http://localhost:3000/api/v1/auth/login', {
+          method: 'POST',
+          headers: {
+            Accept: '* /*',
+            'Content-Type': 'application/json; charset=utf-8',
+          },
+          body: JSON.stringify({
+            username: email,
+            password: password
+          })
+        });
+        const newData = await response.json();
+        console.log(newData);
+        if (newData.error) {
+          console.log(newData);
+          console.log("Incorrect user or password.");
+          alert('Incorrect username or password.');
+        }else{
+          console.log("Token: "+newData.token);
+          setToken(newData.token);
+          setData(newData);
+          click;
+        }
+      };
+      fetchData();
+    });
+  }
+*/
+
   const [QRurl, setQRUrl] = useState();
   const [optionsForImageType, setOptionsForImageType] = useState();
 
@@ -41,11 +82,6 @@ export const FormDemo = ({navigation}) => {
     });
   }
 
-  const { submit, errors, email, setEmail, password, setPassword } = useLogin();
-
-  const click = () => {
-    {submit() === 1 ? navigation.push('App',{email:email,password:password}) /*logIn(email,password)*/ : console.log("no pots entrar") };
-  } 
   return (
     <View style={styles.container}>
       <TextInput
@@ -67,7 +103,7 @@ export const FormDemo = ({navigation}) => {
         autoCapitalize="none"
       />
       <View style={styles.container}>
-      <Button position='10dp' onPress={click}>Sign In</Button> 
+      <Button position='10dp' onPress={click/*doLogIn*/ }>Sign In</Button> 
       <Button onPress={(generateQRCode)}>Generate QR</Button> 
       </View>
       <div>

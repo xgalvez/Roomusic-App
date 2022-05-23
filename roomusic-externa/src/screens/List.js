@@ -7,12 +7,12 @@ import { StyleSheet, FlatList, View, Text } from 'react-native';
 
 const screens = [
   {
-    title: 'Totes les cançons',
+    title: 'All songs',
     subtitle: '',
     target: 'SongsList',
   },
   {
-    title: 'Artistes',
+    title: 'Artists',
     subtitle: '',
     target: 'ArtistsList',
   },
