@@ -71,7 +71,7 @@ export const SongsList = ({route}) => {
           <ListItem
             title={item.metadata.title}
             subtitle={<Text> {item.metadata.artist ? item.metadata.artist : <Text>No hi ha artista</Text> }, {item.metadata.year ? item.metadata.year: <Text>No sabem l'any</Text> }</Text>}
-            onPress= {simpleAlertHandler/*()=>doFetch(item.filepath)*/}
+            onPress= {()=>doFetch(item.filepath)}
                
           />  
         )}

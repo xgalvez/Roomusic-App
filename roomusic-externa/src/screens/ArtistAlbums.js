@@ -12,7 +12,7 @@ export const ArtistAlbums = ({route, navigation}) => {
   
     useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch(url+':3000/api/api/v1/db/artists-albums', {
+        const response = await fetch(url+':3000/api/v1/db/artists-albums', {
           method: 'POST',
           headers: {
             Accept: '*/*',
@@ -51,7 +51,7 @@ export const ArtistAlbums = ({route, navigation}) => {
         renderItem={({ item }) => (
           <ListItem
        //     title={item.name}
-            title={<div>{item.name ? item.name : <Text>Singles</Text> }</div>}
+            title={<div>{item.name ? item.name : <>Singles</> }</div>}
             subtitle={item.year}
             onPress={() => {
               navigation.navigate('AlbumSongs', {

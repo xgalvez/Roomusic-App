@@ -923,7 +923,25 @@ async function savePlaylist() {
     boilerplateFailure(err);
   }
 }
-/////////////// QUEUE
+/////////////// PARTY MODE
+
+function setupQRPanel() {
+  let newHtml = createQR();
+
+  // Add the content
+//  document.getElementById('filelist').innerHTML = newHtml;
+  document.getElementById('qrcode').innerHTML = newHtml;
+
+}
+
+function createQR() {
+ 
+  let address = 'http://192.168.1.64:19006/';
+  console.log(address);
+  return `
+  ${qrcodegen.QrCode.encodeText(address, qrcodegen.QrCode.Ecc.MEDIUM).toSvgString(2)}
+  `;
+}
 
 async function loadQueuePlaylist() {
   try {
@@ -1005,6 +1023,7 @@ function refresh(){
 }
 
 function startRefresh(){
+  setupQRPanel();
   loadQueuePlaylist();
   setInterval(function () {
     refresh();

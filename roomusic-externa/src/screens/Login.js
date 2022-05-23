@@ -67,8 +67,9 @@ export const FormDemo = ({navigation}) => {
         autoCapitalize="none"
       />
       <View style={styles.container}>
-      <Button position='10dp' onPress={click}>Sign In</Button> 
-      <Button onPress={(generateQRCode)}>Generate QR</Button> 
+      <Button position='10dp' onPress={click}>Sign In</Button>
+
+      <Button onPress={()=>navigation.push('App',{email:email,password:password}/*generateQRCode*/)}>Invitado</Button> 
       </View>
       <div>
         {url && optionsForImageType ?
@@ -79,7 +80,9 @@ export const FormDemo = ({navigation}) => {
         }
       </div>
     </View>
+    /*
     
+    */
   );          // <Button onPress={submit}>Sign In</Button> 
   
 }

@@ -13,7 +13,7 @@ export const AlbumSongs = ({route}) => {
   
     useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch(url+':3000/api/api/v1/db/album-songs', {
+        const response = await fetch(url+':3000/api/v1/db/album-songs', {
           method: 'POST',
           headers: {
             Accept: '*/*',

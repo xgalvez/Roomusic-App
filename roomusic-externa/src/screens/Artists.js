@@ -11,7 +11,7 @@ export const ArtistsList = ({route, navigation}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(url+':3000/api/api/v1/db/artists', {
+      const response = await fetch(url+':3000/api/v1/db/artists', {
         method: 'GET',
         headers: {
           Accept: '*/*',

@@ -5,7 +5,7 @@ import { styles, url } from './Login';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, FlatList, View, Text } from 'react-native';
 
-const screens = [
+export const screens = [
   {
     title: 'Totes les cançons',
     subtitle: '',
