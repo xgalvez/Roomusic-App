@@ -1004,11 +1004,10 @@ function refresh(){
  // newQueue();
 }
 
+const intervalQueue;
 function startRefresh(){
   loadQueuePlaylist();
-  setInterval(function () {
-    refresh();
-  }, 10000);
+  intervalQueue = setInterval(refresh(), 10000);
   console.log("Refrescant 1");
 }
 
