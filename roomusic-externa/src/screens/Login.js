@@ -15,8 +15,8 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   }
 });
-export const url = "http://192.168.1.64";  
-//export const url = "http://172.20.10.4";
+//export const url = "http://192.168.1.64";  
+export const url = "http://172.20.10.4";
 
 export const FormDemo = ({navigation}) => {
 

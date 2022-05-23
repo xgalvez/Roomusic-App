@@ -67,7 +67,7 @@ export const List = ({ navigation,route }) => {
         <ListItem
           title={item.title}
           subtitle={item.subtitle}
-          onPress={() => navigation.navigate(item.target,{sessionToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imludml0YWRvIiwiaWF0IjoxNjUzMDQ5NDUxfQ.7yWxfLry5uLQy6lCT2Bzwp_vcqXRkKNzsOpl1uQ7yRY'})}
+          onPress={() => navigation.navigate(item.target,{sessionToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imludml0YWRvIiwiaWF0IjoxNjUzMzA2OTM1fQ.YwDaTKCsh4HIBDWUPHd4eSyarX5-qaIsuo5MsMY1tc0'})}
         />
       )}
       ItemSeparatorComponent={ListSeparator}

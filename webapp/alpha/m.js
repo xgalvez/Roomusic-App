@@ -936,7 +936,8 @@ function setupQRPanel() {
 
 function createQR() {
  
-  let address = 'http://192.168.1.64:19006/';
+//  let address = 'http://192.168.1.64:19006/';
+  let address = 'http://172.20.10.4:19006/';
   console.log(address);
   return `
   ${qrcodegen.QrCode.encodeText(address, qrcodegen.QrCode.Ecc.MEDIUM).toSvgString(2)}
@@ -981,8 +982,10 @@ async function loadQueuePlaylist(first) {
     document.getElementById('filelist').innerHTML = '<div>Server call patata</div>';
     boilerplateFailure(response, error);
   }
+//  addAll();
+  
   if(first != 1){
-    console.log("First == 1");
+    console.log("First != 1");
     addAll();
   }
   console.log("Llista afegida a la cua");
@@ -1000,20 +1003,16 @@ async function deleteQueue() {
 }
 
 async function newQueue() {
-  document.getElementById('new_playlist').disabled = true;
   try {
     const title = "queue";
     await MSTREAMAPI.newPlaylist(title);
     myModal.close();
     VUEPLAYERCORE.playlists.push({ name: title, type: 'playlist'});
-  
-    if (programState[0].state === 'allPlaylists') {
-      getAllPlaylists();
-    }
   }catch (err) {
     boilerplateFailure(err);
   }
-  document.getElementById('new_playlist').disabled = false;
+
+  console.log("Llista creada");
 }
 
 function refresh(){
@@ -1029,8 +1028,10 @@ var intervalQueue;
 function startRefresh(){
   setupQRPanel();
   loadQueuePlaylist(1);
-  setInterval(refresh(), 5000);
-  console.log("Refrescant 1");
+  intervalQueue = setInterval(function () {
+    refresh();
+  }, 2000);
+  console.log("Inici interval");
 }
 
 /////////////// Artists
