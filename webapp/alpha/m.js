@@ -943,7 +943,7 @@ function createQR() {
   `;
 }
 
-async function loadQueuePlaylist() {
+async function loadQueuePlaylist(first) {
   try {
     setBrowserRootPanel('Party Mode: collaborative queue!');
     const playlistname = "queue";
@@ -981,7 +981,10 @@ async function loadQueuePlaylist() {
     document.getElementById('filelist').innerHTML = '<div>Server call patata</div>';
     boilerplateFailure(response, error);
   }
-  addAll();
+  if(first != 1){
+    console.log("First == 1");
+    addAll();
+  }
   console.log("Llista afegida a la cua");
 }
 
@@ -1019,14 +1022,14 @@ function refresh(){
   
   deleteQueue();
   console.log("Llista eliminada");
- // newQueue();
+  newQueue();
 }
 
-const intervalQueue;
+var intervalQueue;
 function startRefresh(){
   setupQRPanel();
-  loadQueuePlaylist();
-  intervalQueue = setInterval(refresh(), 10000);
+  loadQueuePlaylist(1);
+  setInterval(refresh(), 5000);
   console.log("Refrescant 1");
 }
 

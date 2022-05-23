@@ -54,8 +54,10 @@ function changeView(fn, el){
 
   // close nav on mobile
   closeSideMenu();
-  if(fn!=startRefresh){
-    clearInterval(intervalQueue);
+  if(fn.name != "startRefresh"){
+    console.log("nom: *"+fn.name+"*");
+    console.log("parant interval");
+ //   clearInterval(intervalQueue);
   }
   fn();
 }
