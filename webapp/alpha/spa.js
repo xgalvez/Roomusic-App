@@ -54,6 +54,9 @@ function changeView(fn, el){
 
   // close nav on mobile
   closeSideMenu();
+  if(fn!=startRefresh){
+    clearInterval(intervalQueue);
+  }
   fn();
 }
 

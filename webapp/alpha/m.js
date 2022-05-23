@@ -1022,12 +1022,11 @@ function refresh(){
  // newQueue();
 }
 
+const intervalQueue;
 function startRefresh(){
   setupQRPanel();
   loadQueuePlaylist();
-  setInterval(function () {
-    refresh();
-  }, 10000);
+  intervalQueue = setInterval(refresh(), 10000);
   console.log("Refrescant 1");
 }
 
