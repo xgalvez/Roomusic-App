@@ -8,7 +8,9 @@ import { ArtistsList } from '../screens/Artists';
 import { ArtistAlbums } from '../screens/ArtistAlbums';
 import { AlbumSongs } from '../screens/AlbumSongs';
 import colors from '../constants/colors'; 
+import { styles } from '../screens/Login';
 import { RootSiblingParent } from 'react-native-root-siblings';
+import { color } from 'jimp';
 
 
 const MainStack = createStackNavigator();
@@ -16,84 +18,30 @@ const MainStack = createStackNavigator();
 export const Main = () => (
   <RootSiblingParent>
     <MainStack.Navigator>
-      <MainStack.Screen
-        name="LogIn"
-        component={FormDemo}
-        options={{ 
-          headerTitle: "Roomusic",
-          headerStyle: { backgroundColor: colors.headerBackground },
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 25,
-          },
-        }}
-      />
-      <MainStack.Screen
-        name="App"
-        component={List}
-        options={{
+      <MainStack.Group
+        screenOptions={{
           title: 'Roomusic',
-          headerStyle: { backgroundColor: colors.headerBackground },
+          headerStyle: { 
+            backgroundColor: colors.headerBackground,
+            borderBottomWidth: '3px',
+            borderBottomColor: colors.border
+          },
+          headerTintColor: colors.white,
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 25,
           },
+          
         }}
-      />
-      <MainStack.Screen
-        name="SongsList"
-        component={SongsList}
-        options={{ 
-          headerTitle: "Totes les cançons",
-          headerStyle: { backgroundColor: colors.headerBackground },
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 25,
-          },
-        }}
-      />
-      <MainStack.Screen
-        name="ArtistsList"
-        component={ArtistsList}
-        options={{ 
-          headerTitle: "Llista d'artistes",
-          headerStyle: { backgroundColor: colors.headerBackground },
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 25,
-          },
-        }}
-      />
-      <MainStack.Screen
-        name="ArtistAlbums"
-        component={ArtistAlbums}
-        options={{ 
-          headerTitle: "Llista d'àlbums de l'artista",
-          headerStyle: { backgroundColor: colors.headerBackground },
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 25,
-          },
-        }}
-      />
-      <MainStack.Screen
-        name="AlbumSongs"
-        component={AlbumSongs}
-        options={{ 
-          headerTitle: "Cançons de l'àlbum",
-          headerStyle: { backgroundColor: colors.headerBackground },
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 25,
-          },
-        }}
-      />
+      >
+        <MainStack.Screen name="LogIn" component={FormDemo} />
+        <MainStack.Screen name="App" component={List} />
+        <MainStack.Screen name="SongsList" component={SongsList} />
+        <MainStack.Screen name="ArtistsList" component={ArtistsList}/>
+        <MainStack.Screen name="ArtistAlbums" component={ArtistAlbums}/>
+        <MainStack.Screen name="AlbumSongs" component={AlbumSongs}/>
+      </MainStack.Group>
     </MainStack.Navigator>
   </RootSiblingParent>
 );

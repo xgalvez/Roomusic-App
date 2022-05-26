@@ -7,7 +7,7 @@ import colors from '../constants/colors';
 const styles = StyleSheet.create({
   row: {
     paddingHorizontal: 15,
-    paddingVertical: 10,
+    paddingVertical: 25,
     backgroundColor: colors.blue,
     textAlign: 'center',
   },

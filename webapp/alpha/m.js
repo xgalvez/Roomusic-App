@@ -927,17 +927,13 @@ async function savePlaylist() {
 
 function setupQRPanel() {
   let newHtml = createQR();
-
-  // Add the content
-//  document.getElementById('filelist').innerHTML = newHtml;
   document.getElementById('qrcode').innerHTML = newHtml;
-
 }
 
 function createQR() {
  
-//  let address = 'http://192.168.1.64:19006/';
-  let address = 'http://172.20.10.4:19006/';
+let address = 'http://192.168.1.64:19006/';
+//  let address = 'http://172.20.10.4:19006/';
   console.log(address);
   return `
   ${qrcodegen.QrCode.encodeText(address, qrcodegen.QrCode.Ecc.MEDIUM).toSvgString(2)}
@@ -960,7 +956,6 @@ async function loadQueuePlaylist(first) {
     document.getElementById('localSearchBar').value = '';
     const response = await MSTREAMAPI.loadPlaylist(playlistname);
 
-    // Add the playlist name to the modal
     document.getElementById('playlist_name').value = playlistname;
 
     let files = '';
@@ -976,19 +971,14 @@ async function loadQueuePlaylist(first) {
 
       files += renderFileWithMetadataHtml(value.filepath, value.lokiId, value.metadata);
     });
-
     document.getElementById('filelist').innerHTML = files;
   }catch(err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call patata</div>';
+    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     boilerplateFailure(response, error);
-  }
-//  addAll();
-  
+  }  
   if(first != 1){
-    console.log("First != 1");
     addAll();
   }
-  console.log("Llista afegida a la cua");
 }
 
 async function deleteQueue() {
@@ -1011,16 +1001,11 @@ async function newQueue() {
   }catch (err) {
     boilerplateFailure(err);
   }
-
-  console.log("Llista creada");
 }
 
 function refresh(){
-  loadQueuePlaylist();
-  console.log("Llista carregada");
-  
+  loadQueuePlaylist();  
   deleteQueue();
-  console.log("Llista eliminada");
   newQueue();
 }
 
@@ -1031,7 +1016,6 @@ function startRefresh(){
   intervalQueue = setInterval(function () {
     refresh();
   }, 2000);
-  console.log("Inici interval");
 }
 
 /////////////// Artists

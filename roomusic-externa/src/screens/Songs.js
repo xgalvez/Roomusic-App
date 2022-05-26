@@ -9,13 +9,9 @@ import { FlatList, Alert } from 'react-native';
 export const SongsList = ({route}) => {
     const [data, setData] = useState(null);
     const {sessionToken} = route.params;
-    const simpleAlertHandler = () => {
-      //function to make simple alert
-  //    alert('Hello I am Simple Alert');
-      Alerta.alert("hola", "adeu")
-    };
 
-  //  console.log("token: "+sessionToken);
+
+    console.log("token: "+sessionToken);
     useEffect(() => {
       const fetchData = async () => {
         const response = await fetch(url+':3000/api/v1/db/songs', {
@@ -44,15 +40,13 @@ export const SongsList = ({route}) => {
     
     function doFetch(filepath){
       
-
       console.log("fer fetch");
       fetch(url+':3000/api/v1/playlist/add-song', {
         method: 'POST',
         headers: {
         Accept: '*/*',
         'Content-Type': 'application/json; charset=utf-8',
-        'x-access-token': sessionToken,
-        /*'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1ZXN0IiwiaWF0IjoxNjUxMDcxMTUwfQ.OyEwf_Jdyd0rCPDsCat6U_47fzGJC7-crRA57fzfcjs',*/
+        'x-access-token': sessionToken
       },
       body: JSON.stringify({playlist: "queue", song: filepath} )
     })
@@ -70,7 +64,7 @@ export const SongsList = ({route}) => {
         renderItem={({ item }) => (
           <ListItem
             title={item.metadata.title}
-            subtitle={<Text> {item.metadata.artist ? item.metadata.artist : <Text>No hi ha artista</Text> }, {item.metadata.year ? item.metadata.year: <Text>No sabem l'any</Text> }</Text>}
+            subtitle={<Text> {item.metadata.artist ? item.metadata.artist : <Text>Artist</Text> }, {item.metadata.year ? item.metadata.year: <Text>Year</Text> }</Text>}
             onPress= {()=>doFetch(item.filepath)}
                
           />  
