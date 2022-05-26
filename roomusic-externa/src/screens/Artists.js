@@ -17,18 +17,15 @@ export const ArtistsList = ({route, navigation}) => {
           Accept: '*/*',
           'Content-Type': 'application/json; charset=utf-8',
           'x-access-token': sessionToken,
- /*         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1ZXN0IiwiaWF0IjoxNjUxMDcxMTUwfQ.OyEwf_Jdyd0rCPDsCat6U_47fzGJC7-crRA57fzfcjs',*/
         },
       });
       const newData = await response.json();
-     // console.log(newData);
       const newData2 = newData.artists.map(( item,ix) => {
         return {
           id: ix,
           name: item
         };
       })
-    //  console.log(newData2);
       setData(newData2);
     };
     fetchData();

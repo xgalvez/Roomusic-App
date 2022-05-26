@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     paddingVertical: 25,
     backgroundColor: colors.blue,
     textAlign: 'center',
+    
   },
   titleText: {
     fontWeight: 'bold',

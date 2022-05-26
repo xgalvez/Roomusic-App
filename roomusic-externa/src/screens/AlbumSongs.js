@@ -51,7 +51,6 @@ export const AlbumSongs = ({route}) => {
         Accept: '*/*',
         'Content-Type': 'application/json; charset=utf-8',
         'x-access-token': sessionToken,
-        /*'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1ZXN0IiwiaWF0IjoxNjUxMDcxMTUwfQ.OyEwf_Jdyd0rCPDsCat6U_47fzGJC7-crRA57fzfcjs',*/
       },
       body: JSON.stringify({playlist: "queue", song: filepath} )
     })
@@ -69,6 +68,8 @@ export const AlbumSongs = ({route}) => {
           <ListItem
             title={item.metadata.title}
             subtitle={item.metadata.year}
+            onPress={()=> doFetch(item.filepath)}
+            /*
             onPress= {()=> Alert.alert(
               "Alert Title",
               "My Alert Msg",
@@ -81,7 +82,7 @@ export const AlbumSongs = ({route}) => {
                   onPress: () => console.log("No s'afegeix"),
                   style: "cancel" }
               ]
-            )}
+            )}*/
           />
         )}
         ItemSeparatorComponent={ListSeparator}

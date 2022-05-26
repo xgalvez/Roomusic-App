@@ -11,20 +11,10 @@ import React, { useEffect, useState } from 'react';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex:1,
     backgroundColor: colors.white,
     padding: 10,
     textAlign: 'center',
-  },
-  header: {
-    headerTitle: "Roomusic",
-    headerStyle: { backgroundColor: colors.headerBackground },
-    headerTintColor: colors.white,
-    headerTitleAlign: 'center',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-      fontSize: 25,
-    }
   }
 });
 export const url = "http://192.168.1.64";  

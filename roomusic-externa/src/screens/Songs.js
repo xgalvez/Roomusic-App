@@ -4,14 +4,14 @@ import { styles, url } from './Login';
 
 import Toast from 'react-native-root-toast'
 import React, { useEffect, useState } from 'react';
-import { FlatList, Alert } from 'react-native';
+import { FlatList, Alert,View } from 'react-native';
+import { Image } from 'react-native-elements';
 
+ 
 export const SongsList = ({route}) => {
     const [data, setData] = useState(null);
     const {sessionToken} = route.params;
 
-
-    console.log("token: "+sessionToken);
     useEffect(() => {
       const fetchData = async () => {
         const response = await fetch(url+':3000/api/v1/db/songs', {
@@ -23,7 +23,6 @@ export const SongsList = ({route}) => {
           },
         });
         const newData = await response.json();
-  //    console.log("1: "+JSON.stringify(newData));
         const newData2 = newData.map(( item,ix) => {
           return {
           id: ix,
@@ -31,28 +30,26 @@ export const SongsList = ({route}) => {
            metadata: item.metadata
           };
         })
-   //     console.log(newData2);
         setData(newData2);
       };
       fetchData();
     });
 
     
-    function doFetch(filepath){
+    function addToQueue(filepath){
       
-      console.log("fer fetch");
       fetch(url+':3000/api/v1/playlist/add-song', {
         method: 'POST',
         headers: {
         Accept: '*/*',
         'Content-Type': 'application/json; charset=utf-8',
         'x-access-token': sessionToken
-      },
-      body: JSON.stringify({playlist: "queue", song: filepath} )
-    })
-    let toast = Toast.show('Has afegit la cançó a la cua!', {
-      duration: Toast.durations.LONG,
-    });
+        },
+        body: JSON.stringify({playlist: "queue", song: filepath} )
+      })
+      let toast = Toast.show('Song added to queue!', {
+        duration: Toast.durations.LONG,
+      });
     }
   
   
@@ -63,11 +60,9 @@ export const SongsList = ({route}) => {
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <ListItem
-            title={item.metadata.title}
-            subtitle={<Text> {item.metadata.artist ? item.metadata.artist : <Text>Artist</Text> }, {item.metadata.year ? item.metadata.year: <Text>Year</Text> }</Text>}
-            onPress= {()=>doFetch(item.filepath)}
-               
-          />  
+          title={item.metadata.title}
+          subtitle={<Text> {item.metadata.artist ? item.metadata.artist : <Text>Artist</Text>}, {item.metadata.year ? item.metadata.year : <Text>Year</Text>}</Text>}
+          onPress={() => addToQueue(item.filepath)} />    
         )}
         ItemSeparatorComponent={ListSeparator}
         ListHeaderComponent={ListSeparator}

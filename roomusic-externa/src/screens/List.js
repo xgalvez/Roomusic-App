@@ -38,7 +38,7 @@ export const List = ({ navigation,route }) => {
       keyExtractor={item => item.title}
       renderItem={({ item }) => (
         <View>
-          <Button onPress={() => navigation.navigate(item.target,{sessionToken:token})}>{ item.title }</Button> 
+          <Button  onPress={() => navigation.navigate(item.target,{sessionToken:token})}>{ item.title }</Button> 
         </View>
       )}
     />
