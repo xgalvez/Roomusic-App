@@ -54,7 +54,7 @@ export const AlbumSongs = ({route}) => {
       },
       body: JSON.stringify({playlist: "queue", song: filepath} )
     })
-    let toast = Toast.show('Has afegit la cançó a la cua!', {
+    let toast = Toast.show('Song added to queue!', {
       duration: Toast.durations.LONG,
     });
     }

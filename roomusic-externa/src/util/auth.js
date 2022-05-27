@@ -20,11 +20,8 @@ export const useLogin = () => {
       return null;
     }else{
       console.log("Correcte! Retorna 1");
-
       return 1;
     }
-    Alert.alert('Success!', `Email: ${email} \n Password: ${password}`);
-    return null;
   };
   if(submit===1){
     console.log("correcte x2!");

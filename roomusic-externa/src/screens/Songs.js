@@ -1,4 +1,4 @@
-import { Text } from '../components/Text';
+import { Text } from '../components/Text'; 
 import { ListItem, ListSeparator } from '../components/Llista';
 import { styles, url } from './Login';
 

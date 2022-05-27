@@ -8,10 +8,8 @@ import { ArtistsList } from '../screens/Artists';
 import { ArtistAlbums } from '../screens/ArtistAlbums';
 import { AlbumSongs } from '../screens/AlbumSongs';
 import colors from '../constants/colors'; 
-import { styles } from '../screens/Login';
 import { RootSiblingParent } from 'react-native-root-siblings';
-import { color } from 'jimp';
-
+import { Search } from '../screens/Search';
 
 const MainStack = createStackNavigator();
 
@@ -41,6 +39,7 @@ export const Main = () => (
         <MainStack.Screen name="ArtistsList" component={ArtistsList}/>
         <MainStack.Screen name="ArtistAlbums" component={ArtistAlbums}/>
         <MainStack.Screen name="AlbumSongs" component={AlbumSongs}/>
+        <MainStack.Screen name="Search" component={Search}/>
       </MainStack.Group>
     </MainStack.Navigator>
   </RootSiblingParent>

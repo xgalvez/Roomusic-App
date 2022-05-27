@@ -932,8 +932,8 @@ function setupQRPanel() {
 
 function createQR() {
  
-let address = 'http://192.168.1.64:19006/';
-//  let address = 'http://172.20.10.4:19006/';
+//let address = 'http://192.168.1.64:19006/';
+  let address = 'http://172.20.10.4:19006/';
   console.log(address);
   return `
   ${qrcodegen.QrCode.encodeText(address, qrcodegen.QrCode.Ecc.MEDIUM).toSvgString(2)}
