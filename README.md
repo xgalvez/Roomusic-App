@@ -1,9 +1,12 @@
-Welcome to Roomusic
+## Welcome to Roomusic
 
 The divided app to make your meetings or parties more collaborative, in the sense of listening to songs which everybody likes.
 
-Installation and use
+## Installation and use
 
-1.Install yarn: npm install -g yarn
-2.Install expo-cli with yarn: yarn add global expo-cli
-3.Run the server app with yarn start in the root directory, and also with yarn start but into roomusic-externa/ directory.
+### 1.Install yarn: 
+> `npm install -g yarn`
+### 2.Install expo-cli with yarn:
+>  `yarn add global expo-cli`
+### 3.Run the server app:
+>  `yarn start` in the root directory, and also `yarn start` but into `roomusic-externa/` directory.
