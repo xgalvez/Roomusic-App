@@ -37,14 +37,12 @@ export const AlbumSongs = ({route}) => {
             metadata: item.metadata
           };
         })
-    //    console.log(newData2);
         setData(newData2);
       };
       fetchData();
     });
 
-    function doFetch(filepath){
-      console.log("fer fetch");
+    function addToQueue(filepath){
       fetch(url+':3000/api/v1/playlist/add-song', {
         method: 'POST',
         headers: {
@@ -68,21 +66,7 @@ export const AlbumSongs = ({route}) => {
           <ListItem
             title={item.metadata.title}
             subtitle={item.metadata.year}
-            onPress={()=> doFetch(item.filepath)}
-            /*
-            onPress= {()=> Alert.alert(
-              "Alert Title",
-              "My Alert Msg",
-              [
-                {
-                  text: "SÍ",
-                  onPress: () => doFetch(item.filepath),
-                },
-                { text: "NO", 
-                  onPress: () => console.log("No s'afegeix"),
-                  style: "cancel" }
-              ]
-            )}*/
+            onPress={()=> addToQueue(item.filepath)}
           />
         )}
         ItemSeparatorComponent={ListSeparator}

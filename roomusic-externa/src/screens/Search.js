@@ -95,10 +95,6 @@ export const Search = ({route, navigation}) => {
             ItemSeparatorComponent={ListSeparator}
             ListHeaderComponent={<Text>Albums</Text>}
           /> : <Text>No albums</Text>}    
-
-
-
-          
       </View>
       );
   };

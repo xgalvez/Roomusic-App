@@ -24,8 +24,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'row'
   }
 });
-//export const url = "http://192.168.1.64";  
-export const url = "http://172.20.10.4";
+export const url = "http://192.168.1.64";   
+//export const url = "http://172.20.10.4";
+//export const url = "http://192.168.42.60";
 
 export const FormDemo = ({navigation}) => {
 
@@ -53,9 +54,7 @@ export const FormDemo = ({navigation}) => {
         navigation.push('App',{token:newData.token});
       }
     }
-    
   }
-
   const [QRurl, setQRUrl] = useState();
   const [optionsForImageType, setOptionsForImageType] = useState();
 
@@ -102,16 +101,7 @@ export const FormDemo = ({navigation}) => {
       <Button position='10dp' onPress={ handleLogin}>Sign In</Button> 
       <Button onPress={(generateQRCode)}>Generate QR</Button> 
       </View>
-      <div>
-        {url && optionsForImageType ?
-          <>
-            <QRCodeImage url = {QRurl} options={optionsForImageType}/>
-          </>
-          : null
-        }
-      </div>
+      <div> {url && optionsForImageType ? <QRCodeImage url = {QRurl} options={optionsForImageType}/> : null}</div>
     </View>
   );        
-  
-
 }

@@ -32,10 +32,7 @@ export const screens = [
 export const List = ({ navigation,route }) => {
   const { token } = route.params;
   const [keyWord, setKeyWord] = useState();
-  const [data, setData] = useState(null);
-
   
-
   const postSearch = async (text) => {
     setKeyWord(text);
     console.log(keyWord);
@@ -53,8 +50,6 @@ export const List = ({ navigation,route }) => {
         })
       });
       const newData = await response.json();
-      console.log(newData);
-      setData(newData);
       navigation.navigate('Search', { sessionToken: token, data: newData });
     }
   };

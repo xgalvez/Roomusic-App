@@ -30,7 +30,6 @@ export const Main = () => (
             fontWeight: 'bold',
             fontSize: 25,
           },
-          
         }}
       >
         <MainStack.Screen name="LogIn" component={FormDemo} />
