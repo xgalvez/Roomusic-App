@@ -38,22 +38,7 @@ console.log();
 // Boot the server
 require("./src/server").serveIt(program.json);
 
-/*
-//EXECUTA L'APP EXTERNA
-const { exec } = require('child_process');
-exec('yarn start', (err, stdout, stderr) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
 
-  // the *entire* stdout and stderr (buffered)
-  console.log(`stdout: ${stdout}`);
-  console.log(`stderr: ${stderr}`);
-});
-console.log("hola");
-
-*/
 
 
 

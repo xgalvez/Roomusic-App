@@ -339,7 +339,6 @@ function handleDirClick(el){
 }
 
 function boilerplateFailure(err) {
-  console.log(err);
   let msg = 'Call Failed';
   // TODO: Check this
   if (err.responseJSON && err.responseJSON.error) {

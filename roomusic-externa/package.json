@@ -10,9 +10,7 @@
     "eject": "expo eject",
     "lint": "eslint .",
     "format": "prettier --write '**/*.js'",
-    "test": "jest",
-    "predeploy": "expo build:web",
-    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
+    "test": "jest"
   },
   "dependencies": {
     "@ampproject/remapping": "^2.2.0",

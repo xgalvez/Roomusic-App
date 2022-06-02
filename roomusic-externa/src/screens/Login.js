@@ -24,6 +24,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row'
   }
 });
+
 export const url = "http://192.168.1.64";   
 //export const url = "http://172.20.10.4";
 //export const url = "http://192.168.42.60";
@@ -60,7 +61,6 @@ export const FormDemo = ({navigation}) => {
 
   function generateQRCode(){
     let website = url+":19006";
-    console.log(website);
     setQRUrl(website)
 
     setOptionsForImageType({
