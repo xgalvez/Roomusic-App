@@ -10,6 +10,8 @@ import { AlbumSongs } from '../screens/AlbumSongs';
 import colors from '../constants/colors'; 
 import { RootSiblingParent } from 'react-native-root-siblings';
 import { Search } from '../screens/Search';
+import { PlaylistsList } from '../screens/PlaylistsList';
+import { PlaylistSongs } from '../screens/PlaylistSongs';
 
 const MainStack = createStackNavigator();
 
@@ -35,6 +37,8 @@ export const Main = () => (
         <MainStack.Screen name="LogIn" component={FormDemo} />
         <MainStack.Screen name="App" component={List} />
         <MainStack.Screen name="SongsList" component={SongsList} />
+        <MainStack.Screen name="PlaylistsList" component={PlaylistsList}/>
+        <MainStack.Screen name="PlaylistSongs" component={PlaylistSongs}/>
         <MainStack.Screen name="ArtistsList" component={ArtistsList}/>
         <MainStack.Screen name="ArtistAlbums" component={ArtistAlbums}/>
         <MainStack.Screen name="AlbumSongs" component={AlbumSongs}/>

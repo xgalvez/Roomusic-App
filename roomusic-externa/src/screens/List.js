@@ -1,12 +1,10 @@
 import colors from '../constants/colors';
 import { ListItem, ListSeparator } from '../components/Llista';
 import { styles, url } from './Login';
-import { Button } from '../components/Button';
-import { TextInput } from '../components/Form';
+import { Button, LogOutButton } from '../components/Button';
 
-import Toast from 'react-native-root-toast'
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, FlatList, View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, FlatList, View } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
 export const screens = [
@@ -20,6 +18,11 @@ export const screens = [
     subtitle: '',
     target: 'ArtistsList',
   },
+  {
+    title: 'Playlists',
+    subtitle: '',
+    target: 'PlaylistsList',
+  },  
   {
     title: 'Log Out',
     subtitle: '',
@@ -35,7 +38,6 @@ export const List = ({ navigation,route }) => {
   
   const postSearch = async (text) => {
     setKeyWord(text);
-    console.log(keyWord);
     if(keyWord){
       const response = await fetch(url + ':3000/api/v1/db/search', {
         method: 'POST',
@@ -73,7 +75,9 @@ export const List = ({ navigation,route }) => {
         keyExtractor={item => item.title}
         renderItem={({ item }) => (
           <View>
-            <Button onPress={() => navigation.navigate(item.target, { sessionToken: token })}>{item.title}</Button>
+            { item.title === 'Log Out' ?
+            <LogOutButton onPress={() => navigation.navigate(item.target, { sessionToken: token })}>{item.title}</LogOutButton> : 
+            <Button onPress={() => navigation.navigate(item.target, { sessionToken: token })}>{item.title}</Button> }
           </View>
         )} />
     </>

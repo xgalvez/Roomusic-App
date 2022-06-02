@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
     height: StyleSheet.hairlineWidth,
     backgroundColor: colors.border,
   },
+  headerTitleText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  }
 });
 
 export const ListItem = ({ title, subtitle, onPress = () => null }) => {
@@ -35,3 +39,6 @@ export const ListItem = ({ title, subtitle, onPress = () => null }) => {
 };
 
 export const ListSeparator = () => <View style={styles.separator} />;
+
+export const ArtistAlbumsListHeader = (name) => <><Text style={styles.headerTitleText}>{name}: Albums {"\n"} </Text> <View style={styles.separator} /></>;
+export const AlbumSongsListHeader = (name) => <><Text style={styles.headerTitleText}>{name}: Songs {"\n"}   </Text> <View style={styles.separator} /></>;

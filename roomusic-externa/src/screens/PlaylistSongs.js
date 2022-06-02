@@ -1,18 +1,18 @@
-import { ListItem, ListSeparator, AlbumSongsListHeader } from '../components/Llista';
+import { ListItem, ListSeparator } from '../components/Llista';
 import { styles, url } from './Login';
 
 import Toast from 'react-native-root-toast';
 import React, { useEffect, useState } from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
 
-export const AlbumSongs = ({route}) => {
+export const PlaylistSongs = ({route}) => {
     const [data, setData] = useState(null);
   
-    const { albumName, albumArtist, albumYear, sessionToken } = route.params;
+    const { playlistName, sessionToken } = route.params;
   
     useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch(url+':3000/api/v1/db/album-songs', {
+        const response = await fetch(url+':3000/api/v1/playlist/load', {
           method: 'POST',
           headers: {
             Accept: '*/*',
@@ -20,9 +20,7 @@ export const AlbumSongs = ({route}) => {
             'x-access-token': sessionToken,
           },
           body: JSON.stringify({
-            album: albumName,
-            artist: albumArtist, 
-            year: albumYear
+            playlistname: playlistName
           })
         });
         const newData = await response.json();
@@ -49,7 +47,7 @@ export const AlbumSongs = ({route}) => {
       },
       body: JSON.stringify({playlist: "queue", song: filepath} )
     })
-    let toast = Toast.show('Song added to queue!', {
+    Toast.show('Song added to queue!', {
       duration: Toast.durations.LONG,
     });
     }
@@ -67,7 +65,7 @@ export const AlbumSongs = ({route}) => {
           />
         )}
         ItemSeparatorComponent={ListSeparator}
-        ListHeaderComponent= {albumName ? AlbumSongsListHeader(albumName) : ListSeparator}  
+        ListHeaderComponent={ListSeparator}
         ListFooterComponent={ListSeparator}
       />
     );

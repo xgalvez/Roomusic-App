@@ -12,6 +12,14 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     marginVertical: 7,
   },
+  logOut: {
+    backgroundColor: colors.error,
+    paddingVertical: 14,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: colors.border,
+    marginVertical: 7,
+  },
   containerOutline: {
     backgroundColor: 'transparent',
     borderColor: colors.border,
@@ -30,6 +38,21 @@ const styles = StyleSheet.create({
 
 export const Button = ({ onPress = () => {}, children = '', type }) => {
   const containerStyles = [styles.container];
+  const textStyles = [styles.text];
+
+  if (type === 'outline') {
+    containerStyles.push(styles.containerOutline);
+    textStyles.push(styles.textOutline);
+  }
+
+  return (
+    <TouchableOpacity onPress={onPress} style={containerStyles}>
+      <Text style={textStyles}>{children}</Text>
+    </TouchableOpacity>
+  );
+};
+export const LogOutButton = ({ onPress = () => {}, children = '', type }) => {
+  const containerStyles = [styles.logOut];
   const textStyles = [styles.text];
 
   if (type === 'outline') {

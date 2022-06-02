@@ -843,7 +843,6 @@ async function onPlaylistClick(el) {
 
 function removePlaylistSong(el) {
   try {
-    console.log(el);
     const lokiId = el.getAttribute('data-lokiid');
     MSTREAMAPI.removePlaylistSong(lokiId);
 
@@ -933,7 +932,6 @@ function createQR() {
  
 let address = 'http://192.168.1.64:19006/';
 //  let address = 'http://172.20.10.4:19006/';
-  console.log(address);
   return `
   ${qrcodegen.QrCode.encodeText(address, qrcodegen.QrCode.Ecc.MEDIUM).toSvgString(2)}
   `;
@@ -984,7 +982,6 @@ async function deleteQueue() {
   const playlistname = "queue";
   try {
     await MSTREAMAPI.deletePlaylist(playlistname)
-    console.log("Eliminant");
     document.querySelector('li[data-playlistname="'+encodeURIComponent(playlistname)+'"]').remove();
   }catch(err) {
 

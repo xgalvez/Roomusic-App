@@ -5,7 +5,6 @@ import { styles, url } from './Login';
 import Toast from 'react-native-root-toast'
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, FlatList, View, Text } from 'react-native';
-import { SearchBar } from 'react-native-elements';
 
 
 export const Search = ({route, navigation}) => {

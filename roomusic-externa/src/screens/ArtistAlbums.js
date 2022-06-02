@@ -1,14 +1,13 @@
-import { ListItem, ListSeparator } from '../components/Llista';
+import { ListItem, ListSeparator, ArtistAlbumsListHeader } from '../components/Llista';
 import { styles, url } from './Login';
 
 import React, { useEffect, useState } from 'react';
-import { StyleSheet,FlatList, View, Alert } from 'react-native';
+import { FlatList,Text } from 'react-native';
 
 export const ArtistAlbums = ({route, navigation}) => {
     const [data, setData] = useState(null);
   
     const { artistName, sessionToken } = route.params;
-    console.log("Artista" + artistName);
   
     useEffect(() => {
       const fetchData = async () => {
@@ -18,14 +17,12 @@ export const ArtistAlbums = ({route, navigation}) => {
             Accept: '*/*',
             'Content-Type': 'application/json; charset=utf-8',
             'x-access-token': sessionToken,
-  /*          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1ZXN0IiwiaWF0IjoxNjUxMDcxMTUwfQ.OyEwf_Jdyd0rCPDsCat6U_47fzGJC7-crRA57fzfcjs',*/
           },
           body: JSON.stringify({
             artist: artistName
           })
         });
         const newData = await response.json();
-      //  console.log(JSON.stringify(newData));
   
         const newData2 = newData.albums.map(( item,ix) => {
           return {
@@ -36,8 +33,6 @@ export const ArtistAlbums = ({route, navigation}) => {
             artist: artistName
           };
         })
-    //    console.log(newData);
-    //    console.log(newData2);
         setData(newData2);
       };
       fetchData();
@@ -50,7 +45,6 @@ export const ArtistAlbums = ({route, navigation}) => {
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <ListItem
-       //     title={item.name}
             title={<div>{item.name ? item.name : <>Singles</> }</div>}
             subtitle={item.year}
             onPress={() => {
@@ -64,7 +58,7 @@ export const ArtistAlbums = ({route, navigation}) => {
           />
         )}
         ItemSeparatorComponent={ListSeparator}
-        ListHeaderComponent={ListSeparator}
+        ListHeaderComponent={ArtistAlbumsListHeader(artistName)}
         ListFooterComponent={ListSeparator}
       />
     );
