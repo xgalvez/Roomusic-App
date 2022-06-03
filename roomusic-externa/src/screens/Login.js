@@ -25,9 +25,7 @@ export const styles = StyleSheet.create({
   }
 });
 
-export const url = "http://192.168.1.64";   
-//export const url = "http://172.20.10.4";
-//export const url = "http://192.168.42.60";
+export const url = "http://localhost";
 
 export const FormDemo = ({navigation}) => {
 
